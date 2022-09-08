@@ -80,11 +80,11 @@ def main():
         except:
             print("DONE")
             break
-
-    if changesMade:
-        with open("newJobs.json", "w") as f:
+        
+    with open("newJobs.json", "w") as f:
             json.dump(newJobs, f)
 
+    if changesMade:
         with open("companiesList.json", "w") as f:
             json.dump(companies, f)
 
