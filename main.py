@@ -1,7 +1,8 @@
 from selenium import webdriver
 import time
 import json
-
+import os
+import webbrowser
 from selenium.webdriver.common.by import By
 
 
@@ -74,6 +75,9 @@ def main():
                 if name not in newJobs:
                     newJobs[name] = []
 
+
+                
+
                 newJobs[name].append((title, link))
                 companies[name].append((title, link))
 
@@ -87,8 +91,10 @@ def main():
     if changesMade:
         with open("companiesList.json", "w") as f:
             json.dump(companies, f)
-
+    
     driver.quit()
+
+    webbrowser.open('file://' + os.path.realpath('newjobs.json'))
 
 
 if __name__ == "__main__":
